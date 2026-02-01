@@ -1,70 +1,171 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+PROJECT URL : https://myebank007.ccbp.tech/
 
-In the project directory, you can run:
+### Design Files
 
-### `npm start`
+<details>
+<summary>Login Route</summary>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Login](https://assets.ccbp.in/frontend/react-js/ebank-login-route-img.png)
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Login Failure](https://assets.ccbp.in/frontend/react-js/ebank-login-failure-route-img.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</details>
 
-### `npm test`
+<details>
+<summary>Home Route</summary>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Home](https://assets.ccbp.in/frontend/react-js/ebank-home-route-img.png)
 
-### `npm run build`
+</details>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<details>
+<summary>Not Found Route</summary>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Home](https://assets.ccbp.in/frontend/react-js/ebank-not-found-route-img.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</details>
 
-### `npm run eject`
+### Set Up Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<details>
+<summary>Click to view</summary>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Download dependencies by running `npm install`
+- Start up the app using `npm start`
+</details>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Completion Instructions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<details>
+<summary>Functionality to be added</summary>
+<br/>
 
-## Learn More
+The app must have the following functionalities
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Login Route**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - When invalid credentials are provided and the **Login** button is clicked, then the error message received from the response should be displayed
+  - When valid credentials are provided and the **Login** button is clicked, then the page should be navigated to the Home Route
+  - When an unauthenticated user tries to access the Home Route, then the page should be navigated to Login Route
+  - When an authenticated user tries to access the Home Route, then the page should be navigated to the Home Route
 
-### Code Splitting
+- **Home Route**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - When an _authenticated_ user tries to access the Login Route, then the page should be navigated to the Home Route
+  - When the **Logout** button is clicked, then the page should be navigated to the Login Route
 
-### Analyzing the Bundle Size
+- **Not Found Route**
+  - When a random path is provided in the URL, then the page should be navigated to the Not Found Route
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+</details>
 
-### Making a Progressive Web App
+<details>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<summary>API Requests & Responses</summary>
+<br/>
 
-### Advanced Configuration
+**loginApiUrl**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### API: `https://apis.ccbp.in/ebank/login`
 
-### Deployment
+#### Method: `POST`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Request:
 
-### `npm run build` fails to minify
+```json
+{
+  "user_id": 142420,
+  "pin": 231225
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Description:
+
+Returns a response based on the credentials provided
+
+#### Sample Success Response:
+
+```json
+{
+  "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjE0MjQyMCIsInJvbGUiOiJQUklNRV9VU0VSIiwiaWF0IjoxNjM0MDk4NzYyfQ.ZUCC2J2zBjRhLVa1EI_4EnkZ-M-7hoVZoZFAu8GTmEQ"
+}
+```
+
+#### Sample Failure Response:
+
+```json
+{
+  "status_code": 401,
+  "error_msg": "Invalid user ID"
+}
+```
+
+</details>
+
+### Important Note
+
+<details>
+<summary>Click to view</summary>
+
+<br/>
+
+**The following instructions are required for the tests to pass**
+
+- Home Route should consist of `/` in the URL path
+- Login Route should consist of `/ebank/login` in the URL path
+- No need to use the `BrowserRouter` in `App.js` as we have already included in `index.js`
+
+- User credentials
+
+  ```text
+   User ID: 142420
+   PIN: 231225
+
+  ```
+
+</details>
+
+### Resources
+
+<details>
+<summary>Image URLs</summary>
+
+- [https://assets.ccbp.in/frontend/react-js/ebank-login-img.png](https://assets.ccbp.in/frontend/react-js/ebank-login-img.png) alt should be **website login**
+
+- [https://assets.ccbp.in/frontend/react-js/ebank-logo-img.png](https://assets.ccbp.in/frontend/react-js/ebank-logo-img.png) alt should be **website logo**
+
+- [https://assets.ccbp.in/frontend/react-js/ebank-digital-card-img.png](https://assets.ccbp.in/frontend/react-js/ebank-digital-card-img.png) alt should be **digital card**
+
+- [https://assets.ccbp.in/frontend/react-js/ebank-not-found-img.png](https://assets.ccbp.in/frontend/react-js/ebank-not-found-img.png) alt should be **not found**
+
+</details>
+<br/>
+<details>
+<summary>Colors</summary>
+
+<br/>
+
+<div style="background-color: #152850; width: 150px; padding: 10px; color: white">Hex: #152850</div>
+<div style="background-color: #e0eefe; width: 150px; padding: 10px; color: black">Hex: #e0eefe</div>
+<div style="background-color: #183b56; width: 150px; padding: 10px; color: white">Hex: #183b56</div>
+<div style="background-color: #5a7184; width: 150px; padding: 10px; color: white">Hex: #5a7184</div>
+<div style="background-color: #ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
+<div style="background-color: #c3cad9; width: 150px; padding: 10px; color: black">Hex: #c3cad9</div>
+<div style="background-color: #1565d8; width: 150px; padding: 10px; color: white">Hex: #1565d8</div>
+<div style="background-color: #ff0b37; width: 150px; padding: 10px; color: white">Hex: #ff0b37</div>
+<div style="background-color: #f8fafc; width: 150px; padding: 10px; color: black">Hex: #f8fafc</div>
+
+</details>
+<br/>
+<details>
+
+<summary>Font-families</summary>
+
+- Roboto
+
+</details>
+
+> ### _Things to Keep in Mind_
+>
+> - All components you implement should go in the `src/components` directory
