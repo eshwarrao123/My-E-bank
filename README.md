@@ -37,28 +37,6 @@ PROJECT URL : https://myebank007.ccbp.tech/
 
 ### Completion Instructions
 
-<details>
-<summary>Functionality to be added</summary>
-<br/>
-
-The app must have the following functionalities
-
-- **Login Route**
-
-  - When invalid credentials are provided and the **Login** button is clicked, then the error message received from the response should be displayed
-  - When valid credentials are provided and the **Login** button is clicked, then the page should be navigated to the Home Route
-  - When an unauthenticated user tries to access the Home Route, then the page should be navigated to Login Route
-  - When an authenticated user tries to access the Home Route, then the page should be navigated to the Home Route
-
-- **Home Route**
-
-  - When an _authenticated_ user tries to access the Login Route, then the page should be navigated to the Home Route
-  - When the **Logout** button is clicked, then the page should be navigated to the Login Route
-
-- **Not Found Route**
-  - When a random path is provided in the URL, then the page should be navigated to the Not Found Route
-
-</details>
 
 <details>
 
